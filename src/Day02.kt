@@ -4,7 +4,7 @@ fun main() {
     val reports = readInput("Day02")
     val safeReports = reports
         .map { line -> line.split(" ").map { it.toInt() } }
-        .filter { checkIncreasingOrDecreasingOnly(it) || checkWithRemovingOneElement(it) }.count { checkIncreasingAndDecreasingRange(it) }
+        .count { (checkIncreasingOrDecreasingOnly(it) || checkWithRemovingOneElement(it)) && checkIncreasingAndDecreasingRange(it) }
     println(safeReports)
 }
 fun checkIncreasingOrDecreasingOnly (numbers : List<Int>): Boolean {
