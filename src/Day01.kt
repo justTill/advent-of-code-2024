@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 fun main() {
     val input = readInput("Day01")
     println(input)
@@ -9,7 +11,7 @@ fun main() {
         .unzip()
     leftList = leftList.sorted()
     rightList= rightList.sorted()
-    val differences = leftList.zip(rightList) { left, right -> Math.abs(left - right) }
+    val differences = leftList.zip(rightList) { left, right -> abs(left - right) }
     println(differences.sum())
 
 
