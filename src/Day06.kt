@@ -65,11 +65,8 @@ fun traversePlayingFieldAndDocumentSteps(playingField: List<String>, obstruction
 
 fun main() {
     val playingField = readInput("Day06")
-    println(traversePlayingFieldAndDocumentSteps(playingField, -1 to -1).count())
-
-    println(playingField.indices
-        .flatMap { row -> playingField[row].indices.map { column -> row to column } }
-        .filter { (row, column) -> playingField[row][column] == '.' }
-        .count{ (row, column ) -> traversePlayingFieldAndDocumentSteps(playingField,row to column).isEmpty()})
+    val path = traversePlayingFieldAndDocumentSteps(playingField, -1 to -1)
+    println(path.count())
+    println(path.count{ (row, column) -> traversePlayingFieldAndDocumentSteps(playingField,row to column).isEmpty()})
 
 }
